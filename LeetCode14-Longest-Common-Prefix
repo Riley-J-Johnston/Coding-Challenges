@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string cmnPrefix = strs[0];
+        int newPrefixLength;
+        for (int i=1; i<strs.size(); i++){
+            newPrefixLength = 0;
+            for (int j=0; j<cmnPrefix.length(); j++){
+                cmnPrefix[j] = (cmnPrefix[j]==strs[i][j])?cmnPrefix[j]:NULL;
+                if (cmnPrefix[j]!=NULL){
+                    newPrefixLength += 1;
+                }
+                cout<<"common prefix: "<<cmnPrefix<<" length="<<cmnPrefix.length()<<endl;
+            }
+            cmnPrefix.resize(newPrefixLength);//Note that we could instead just use an int to count this
+        }    
+        return cmnPrefix;
+    }
+};
